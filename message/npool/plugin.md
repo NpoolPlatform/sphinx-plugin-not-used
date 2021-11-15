@@ -3,33 +3,28 @@
 
 ## Table of Contents
 
-- [agents/agents.proto](#agents/agents.proto)
+- [npool/plugin.proto](#npool/plugin.proto)
     - [AccountBalance](#sphinx.v1.AccountBalance)
     - [AccountTxJSON](#sphinx.v1.AccountTxJSON)
     - [BroadcastScriptRequest](#sphinx.v1.BroadcastScriptRequest)
     - [BroadcastScriptResponse](#sphinx.v1.BroadcastScriptResponse)
-    - [CreateAccountRequest](#sphinx.v1.CreateAccountRequest)
-    - [CreateAccountResponse](#sphinx.v1.CreateAccountResponse)
     - [GetBalanceRequest](#sphinx.v1.GetBalanceRequest)
     - [GetSignInfoRequest](#sphinx.v1.GetSignInfoRequest)
     - [GetTxJSONRequest](#sphinx.v1.GetTxJSONRequest)
     - [GetTxStatusRequest](#sphinx.v1.GetTxStatusRequest)
     - [GetTxStatusResponse](#sphinx.v1.GetTxStatusResponse)
     - [SignInfo](#sphinx.v1.SignInfo)
-    - [SignScriptRequest](#sphinx.v1.SignScriptRequest)
-    - [SignScriptResponse](#sphinx.v1.SignScriptResponse)
   
     - [Plugin](#sphinx.v1.Plugin)
-    - [Sign](#sphinx.v1.Sign)
   
 - [Scalar Value Types](#scalar-value-types)
 
 
 
-<a name="agents/agents.proto"></a>
+<a name="npool/plugin.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## agents/agents.proto
+## npool/plugin.proto
 
 
 
@@ -92,39 +87,6 @@ BroadcastScript 返回
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | transaction_id_chain | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="sphinx.v1.CreateAccountRequest"></a>
-
-### CreateAccountRequest
-CreateAccount 参数
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| coin_id | [int32](#int32) |  |  |
-| uuid | [string](#string) |  | 数据库内账户私钥结构：createtime_utc, salt, prikey(encrypted) prikey(encrypted) = encrypt(prikey,string(uuid&#43;salt)) 对称加密 上线后，通知用户后台管理员做好用户数据（uuid）的备份，salt由离线签名服务端随机生成；需两把密钥解锁私钥 低安全性模式中/测试环境，复制uuid为salt，以防uuid丢失 设计思路：uuid为2FA所生成的用户私钥，保存在谷歌验证器中，但服务端必须做备份，以防用户丢失谷歌验证器后进行重置 理想情况下，2FA私钥仅保存在离线签名端，全链仅传输时效性验证码；这样可以实现安全策略 |
-
-
-
-
-
-
-<a name="sphinx.v1.CreateAccountResponse"></a>
-
-### CreateAccountResponse
-CreateAccount 返回
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| coin_id | [int32](#int32) |  |  |
-| address | [string](#string) |  | 创建的钱包地址 |
-| uuid | [string](#string) |  | user_id或与其绑定的唯一标识符，用于加密私钥提高安全性 |
 
 
 
@@ -236,51 +198,6 @@ GetSignInfo 返回
 
 
 
-
-<a name="sphinx.v1.SignScriptRequest"></a>
-
-### SignScriptRequest
-SignScript 参数
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| coin_id | [int32](#int32) |  |  |
-| transaction_id_insite | [string](#string) |  | 站内交易ID，缓存去重 |
-| address_from | [string](#string) |  | 发送方 |
-| address_to | [string](#string) |  | 接收方 |
-| amount_int | [int64](#int64) |  | 金额整数 |
-| amount_digits | [int32](#int32) |  | 默认为9 |
-| amount_string | [string](#string) |  | 字符串格式数据，便于确认 |
-| uuid_signature | [string](#string) |  | 2FA签名 |
-| createtime_utc | [int64](#int64) |  | 用户发起提现的时间，与2FA绑定 |
-
-
-
-
-
-
-<a name="sphinx.v1.SignScriptResponse"></a>
-
-### SignScriptResponse
-SignScript 返回
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| coin_id | [int32](#int32) |  |  |
-| transaction_id_insite | [string](#string) |  | 站内交易ID，缓存去重 |
-| address_from | [string](#string) |  | 发送方 |
-| address_to | [string](#string) |  | 接收方 |
-| amount_int | [int64](#int64) |  | 金额整数 |
-| amount_digits | [int32](#int32) |  | 默认为9 |
-| amount_string | [string](#string) |  | 字符串格式数据，便于确认 |
-| script_json | [string](#string) |  | 可用于广播的交易script对象 |
-
-
-
-
-
  
 
  
@@ -300,17 +217,6 @@ SignScript 返回
 | BroadcastScript | [BroadcastScriptRequest](#sphinx.v1.BroadcastScriptRequest) | [BroadcastScriptResponse](#sphinx.v1.BroadcastScriptResponse) | 广播交易 |
 | GetTxStatus | [GetTxStatusRequest](#sphinx.v1.GetTxStatusRequest) | [GetTxStatusResponse](#sphinx.v1.GetTxStatusResponse) | 交易状态查询 |
 | GetTxJSON | [GetTxJSONRequest](#sphinx.v1.GetTxJSONRequest) | [AccountTxJSON](#sphinx.v1.AccountTxJSON) | 账户交易查询 |
-
-
-<a name="sphinx.v1.Sign"></a>
-
-### Sign
-离线签名服务
-
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| CreateAccount | [CreateAccountRequest](#sphinx.v1.CreateAccountRequest) | [CreateAccountResponse](#sphinx.v1.CreateAccountResponse) | 创建账户 |
-| SignScript | [SignScriptRequest](#sphinx.v1.SignScriptRequest) | [SignScriptResponse](#sphinx.v1.SignScriptResponse) | 进行签名 |
 
  
 
