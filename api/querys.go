@@ -3,8 +3,11 @@ package api
 import (
 	"context"
 
+	"github.com/NpoolPlatform/go-service-framework/pkg/logger"
 	"github.com/NpoolPlatform/sphinx-plugin/message/npool"
 	"github.com/NpoolPlatform/sphinx-plugin/pkg/plugin/fil"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 var (
@@ -13,8 +16,8 @@ var (
 )
 
 // 获取预签名信息
-func (s *Server) GetSignInfo(ctx context.Context, in *npool.GetSignInfoRequest) (ret *npool.SignInfo, err error) {
-	resp, err = fil.Server.GetSignInfo(ctx, in)
+func (s *Server) GetSignInfo(ctx context.Context, in *npool.GetSignInfoRequest) (resp *npool.SignInfo, err error) {
+	resp, err = fil.PluginServer.GetSignInfo(ctx, in)
 	if err != nil {
 		logger.Sugar().Errorw("getsigninfo error: %w", err)
 		resp = &npool.SignInfo{}
@@ -26,8 +29,8 @@ func (s *Server) GetSignInfo(ctx context.Context, in *npool.GetSignInfoRequest) 
 }
 
 // 余额查询
-func (s *Server) GetBalance(ctx context.Context, in *npool.GetBalanceRequest) (ret *npool.AccountBalance, err error) {
-	resp, err = fil.Server.GetBalance(ctx, in)
+func (s *Server) GetBalance(ctx context.Context, in *npool.GetBalanceRequest) (resp *npool.AccountBalance, err error) {
+	resp, err = fil.PluginServer.GetBalance(ctx, in)
 	if err != nil {
 		logger.Sugar().Errorw("getbalance error: %w", err)
 		resp = &npool.AccountBalance{}
@@ -39,11 +42,11 @@ func (s *Server) GetBalance(ctx context.Context, in *npool.GetBalanceRequest) (r
 }
 
 // 广播交易
-func (s *Server) BroadcastScript(ctx context.Context, in *npool.BroadcastScriptRequest) (ret *npool.broadcastScriptResponse, err error) {
-	resp, err = fil.Server.BroadcastScript(ctx, in)
+func (s *Server) BroadcastScript(ctx context.Context, in *npool.BroadcastScriptRequest) (resp *npool.BroadcastScriptResponse, err error) {
+	resp, err = fil.PluginServer.BroadcastScript(ctx, in)
 	if err != nil {
 		logger.Sugar().Errorw("broadcastscript error: %w", err)
-		resp = &npool.broadcastScriptResponse{}
+		resp = &npool.BroadcastScriptResponse{}
 		if debugFlag {
 			err = errInternal
 		}
@@ -52,11 +55,11 @@ func (s *Server) BroadcastScript(ctx context.Context, in *npool.BroadcastScriptR
 }
 
 // 交易状态查询
-func (s *Server) GetInsiteTxStatus(ctx context.Context, in *npool.GetInsiteTxStatusRequest) (ret *npool.GetInsiteTxStatusResponse, err error) {
-	resp, err = fil.Server.GetInsiteTxStatus(ctx, in)
+func (s *Server) GetTxStatus(ctx context.Context, in *npool.GetTxStatusRequest) (resp *npool.GetTxStatusResponse, err error) {
+	resp, err = fil.PluginServer.GetTxStatus(ctx, in)
 	if err != nil {
 		logger.Sugar().Errorw("getinsitetxstatus error: %w", err)
-		resp = &npool.GetInsiteTxStatus{}
+		resp = &npool.GetTxStatusResponse{}
 		if debugFlag {
 			err = errInternal
 		}
@@ -65,7 +68,7 @@ func (s *Server) GetInsiteTxStatus(ctx context.Context, in *npool.GetInsiteTxSta
 }
 
 // TODO 账户交易查询
-func (s *Server) GetTxJSON(ctx context.Context, in *npool.GetTxJSONRequest) (ret *npool.AccountTxJSON, err error) {
-	ret = &npool.AccountTxJSON{}
+func (s *Server) GetTxJSON(ctx context.Context, in *npool.GetTxJSONRequest) (resp *npool.AccountTxJSON, err error) {
+	resp = &npool.AccountTxJSON{}
 	return
 }

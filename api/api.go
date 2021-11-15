@@ -1,8 +1,6 @@
 package api
 
 import (
-	"context"
-
 	"github.com/NpoolPlatform/sphinx-plugin/message/npool"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
@@ -15,11 +13,11 @@ type Server struct {
 }
 
 func Register(server grpc.ServiceRegistrar) {
-	// npool.RegisterPluginServer(server, &Server{})
-	return
+	if false {
+		npool.RegisterPluginServer(server, &Server{})
+	}
 }
 
 func RegisterGateway(mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) error {
-	// return npool.RegisterPluginHandlerFromEndpoint(context.Background(), mux, endpoint, opts)
-	return
+	return nil
 }

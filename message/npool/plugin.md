@@ -14,6 +14,7 @@
     - [GetTxStatusRequest](#sphinx.v1.GetTxStatusRequest)
     - [GetTxStatusResponse](#sphinx.v1.GetTxStatusResponse)
     - [SignInfo](#sphinx.v1.SignInfo)
+    - [VersionResponse](#sphinx.v1.VersionResponse)
   
     - [Plugin](#sphinx.v1.Plugin)
   
@@ -193,6 +194,21 @@ GetSignInfo 返回
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | json | [string](#string) |  | 需要的预签名信息 |
+
+
+
+
+
+
+<a name="sphinx.v1.VersionResponse"></a>
+
+### VersionResponse
+request body and response
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| Info | [string](#string) |  |  |
 
 
 

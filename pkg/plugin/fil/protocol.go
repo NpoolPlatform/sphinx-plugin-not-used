@@ -11,6 +11,8 @@ import (
 
 type Server npool.UnimplementedPluginServer
 
+var PluginServer = Server{}
+
 func (Server) GetSignInfo(ctx context.Context, in *npool.GetSignInfoRequest) (sio *npool.SignInfo, err error) {
 	sioFIL, err := GetSignInfo(in.Address)
 	if err != nil {
