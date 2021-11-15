@@ -1,20 +1,20 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: sphinx-service-npool-top-ingress
+  name: sphinx-plugin-npool-top-ingress
   namespace: kube-system
   annotations:
-    k8s.kuboard.cn/displayName: sphinx-service
-    k8s.kuboard.cn/workload: sphinx-service
+    k8s.kuboard.cn/displayName: sphinx-plugin
+    k8s.kuboard.cn/workload: sphinx-plugin
     kubernetes.io/ingress.class: "traefik-internet"
 spec:
   rules:
   - host: api.npool.top
     http:
       paths:
-      - path: /sphinx-service
+      - path: /sphinx-plugin
         backend:
-          serviceName: sphinx-service
+          serviceName: sphinx-plugin
           servicePort: http
 
 ---
@@ -22,18 +22,18 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: sphinx-service-xpool-top-ingress
+  name: sphinx-plugin-xpool-top-ingress
   namespace: kube-system
   annotations:
-    k8s.kuboard.cn/displayName: sphinx-service
-    k8s.kuboard.cn/workload: sphinx-service
+    k8s.kuboard.cn/displayName: sphinx-plugin
+    k8s.kuboard.cn/workload: sphinx-plugin
     kubernetes.io/ingress.class: "traefik-internet"
 spec:
   rules:
   - host: api.xpool.top
     http:
       paths:
-      - path: /sphinx-service
+      - path: /sphinx-plugin
         backend:
-          serviceName: sphinx-service
+          serviceName: sphinx-plugin
           servicePort: http

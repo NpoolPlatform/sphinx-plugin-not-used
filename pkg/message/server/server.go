@@ -2,7 +2,7 @@ package server
 
 import (
 	msgsrv "github.com/NpoolPlatform/go-service-framework/pkg/rabbitmq/server"
-	msg "github.com/NpoolPlatform/sphinx-service/pkg/message/message"
+	msg "github.com/NpoolPlatform/sphinx-plugin/pkg/message/message"
 )
 
 func Init() error {

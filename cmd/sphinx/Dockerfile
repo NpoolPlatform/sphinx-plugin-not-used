@@ -1,6 +1,6 @@
 FROM jrei/systemd-centos:7
 
-COPY SphinxService.viper.yaml /etc/SphinxService/SphinxService.viper.yaml
-COPY sphinx-service /usr/local/bin/sphinx-service
+COPY sphinxplugin.viper.yaml /etc/sphinxplugin/sphinxplugin.viper.yaml
+COPY sphinx-plugin /usr/local/bin/sphinx-plugin
 
-CMD ["sphinx-service", "run"]
+CMD ["sphinx-plugin", "run"]

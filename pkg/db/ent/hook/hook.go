@@ -6,7 +6,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent"
 )
 
 // The CoinInfoFunc type is an adapter to allow the use of ordinary

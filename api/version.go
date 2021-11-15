@@ -7,8 +7,8 @@ import (
 	"context"
 
 	"github.com/NpoolPlatform/go-service-framework/pkg/logger"
-	"github.com/NpoolPlatform/sphinx-service/message/npool"
-	"github.com/NpoolPlatform/sphinx-service/pkg/version"
+	"github.com/NpoolPlatform/sphinx-plugin/message/npool"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/version"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/emptypb"

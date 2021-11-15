@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"entgo.io/ent/dialect/sql"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/coininfo"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/transaction"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/coininfo"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/transaction"
 )
 
 // Transaction is the model entity for the Transaction schema.

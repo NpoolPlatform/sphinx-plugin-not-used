@@ -3,12 +3,12 @@ package main
 import (
 	"time"
 
-	"github.com/NpoolPlatform/sphinx-service/api"
-	db "github.com/NpoolPlatform/sphinx-service/pkg/db"
-	msgcli "github.com/NpoolPlatform/sphinx-service/pkg/message/client"
-	msglistener "github.com/NpoolPlatform/sphinx-service/pkg/message/listener"
-	msg "github.com/NpoolPlatform/sphinx-service/pkg/message/message"
-	msgsrv "github.com/NpoolPlatform/sphinx-service/pkg/message/server"
+	"github.com/NpoolPlatform/sphinx-plugin/api"
+	db "github.com/NpoolPlatform/sphinx-plugin/pkg/db"
+	msgcli "github.com/NpoolPlatform/sphinx-plugin/pkg/message/client"
+	msglistener "github.com/NpoolPlatform/sphinx-plugin/pkg/message/listener"
+	msg "github.com/NpoolPlatform/sphinx-plugin/pkg/message/message"
+	msgsrv "github.com/NpoolPlatform/sphinx-plugin/pkg/message/server"
 
 	grpc2 "github.com/NpoolPlatform/go-service-framework/pkg/grpc"
 	"github.com/NpoolPlatform/go-service-framework/pkg/logger"

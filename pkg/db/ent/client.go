@@ -7,14 +7,14 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/migrate"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/migrate"
 
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/coininfo"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/empty"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/keystore"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/review"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/transaction"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/walletnode"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/coininfo"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/empty"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/keystore"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/review"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/transaction"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/walletnode"
 
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/dialect/sql"

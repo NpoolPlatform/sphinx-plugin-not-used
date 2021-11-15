@@ -5,9 +5,9 @@ package enttest
 import (
 	"context"
 
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent"
 	// required by schema hooks.
-	_ "github.com/NpoolPlatform/sphinx-service/pkg/db/ent/runtime"
+	_ "github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/runtime"
 
 	"entgo.io/ent/dialect/sql/schema"
 )

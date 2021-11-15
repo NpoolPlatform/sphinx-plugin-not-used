@@ -3,58 +3,69 @@ package api
 import (
 	"context"
 
-	"github.com/NpoolPlatform/sphinx-service/message/npool"
-
-	"github.com/NpoolPlatform/sphinx-service/pkg/core"
-
-	"google.golang.org/protobuf/types/known/emptypb"
+	"github.com/NpoolPlatform/sphinx-plugin/message/npool"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/plugin/fil"
 )
 
-func (s *Server) GetCoinInfos(ctx context.Context, req *npool.GetCoinInfosRequest) (cilist *npool.CoinInfoList, err error) {
-	cilist, err = core.GetCoinInfos(ctx, req)
+var (
+	errInternal = status.Error(codes.Internal, "internal server error")
+	debugFlag   = false
+)
+
+// 获取预签名信息
+func (s *Server) GetSignInfo(ctx context.Context, in *npool.GetSignInfoRequest) (ret *npool.SignInfo, err error) {
+	resp, err = fil.Server.GetSignInfo(ctx, in)
+	if err != nil {
+		logger.Sugar().Errorw("getsigninfo error: %w", err)
+		resp = &npool.SignInfo{}
+		if debugFlag {
+			err = errInternal
+		}
+	}
 	return
 }
-
-func (s *Server) GetCoinInfo(ctx context.Context, req *npool.GetCoinInfoRequest) (cilist *npool.CoinInfoRow, err error) {
-	cilist, err = core.GetCoinInfo(ctx, req)
-	return
-}
-
-// 没写完的放下面
 
 // 余额查询
 func (s *Server) GetBalance(ctx context.Context, in *npool.GetBalanceRequest) (ret *npool.AccountBalance, err error) {
+	resp, err = fil.Server.GetBalance(ctx, in)
+	if err != nil {
+		logger.Sugar().Errorw("getbalance error: %w", err)
+		resp = &npool.AccountBalance{}
+		if debugFlag {
+			err = errInternal
+		}
+	}
 	return
 }
 
-// 转账 / 提现
-func (s *Server) ApplyTransaction(ctx context.Context, in *npool.ApplyTransactionRequest) (ret *emptypb.Empty, err error) {
+// 广播交易
+func (s *Server) BroadcastScript(ctx context.Context, in *npool.BroadcastScriptRequest) (ret *npool.broadcastScriptResponse, err error) {
+	resp, err = fil.Server.BroadcastScript(ctx, in)
+	if err != nil {
+		logger.Sugar().Errorw("broadcastscript error: %w", err)
+		resp = &npool.broadcastScriptResponse{}
+		if debugFlag {
+			err = errInternal
+		}
+	}
 	return
-}
-
-// 签名服务接入点
-func (s *Server) PortalSign(ctx context.Context, in *npool.PortalSignInit) (ret *npool.IdentityProof, err error) {
-	return nil, nil
-}
-
-// 代理服务接入点
-func (s *Server) PortalWallet(ctx context.Context, in *npool.PortalWalletInit) (ret *npool.IdentityProof, err error) {
-	return nil, nil
-}
-
-// 账户交易查询
-func (s *Server) GetTxJSON(ctx context.Context, in *npool.GetTxJSONRequest) (ret *npool.AccountTxJSON, err error) {
-	return nil, nil
 }
 
 // 交易状态查询
 func (s *Server) GetInsiteTxStatus(ctx context.Context, in *npool.GetInsiteTxStatusRequest) (ret *npool.GetInsiteTxStatusResponse, err error) {
-	return nil, nil
+	resp, err = fil.Server.GetInsiteTxStatus(ctx, in)
+	if err != nil {
+		logger.Sugar().Errorw("getinsitetxstatus error: %w", err)
+		resp = &npool.GetInsiteTxStatus{}
+		if debugFlag {
+			err = errInternal
+		}
+	}
+	return
 }
 
-// 在写的放尾部
-
-// 创建账户
-func (s *Server) RegisterAccount(context.Context, *npool.RegisterAccountRequest) (*npool.AccountAddress, error) {
-	return nil, nil
+// TODO 账户交易查询
+func (s *Server) GetTxJSON(ctx context.Context, in *npool.GetTxJSONRequest) (ret *npool.AccountTxJSON, err error) {
+	ret = &npool.AccountTxJSON{}
+	return
 }

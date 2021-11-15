@@ -10,9 +10,9 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/coininfo"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/predicate"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/walletnode"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/coininfo"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/predicate"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/walletnode"
 )
 
 // WalletNodeUpdate is the builder for updating WalletNode entities.

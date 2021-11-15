@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"entgo.io/ent/dialect/sql"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/coininfo"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/walletnode"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/coininfo"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/walletnode"
 )
 
 // WalletNode is the model entity for the WalletNode schema.

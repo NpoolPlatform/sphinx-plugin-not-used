@@ -2,8 +2,8 @@ package listener
 
 import (
 	"github.com/NpoolPlatform/go-service-framework/pkg/logger"
-	msgcli "github.com/NpoolPlatform/sphinx-service/pkg/message/client"
-	msg "github.com/NpoolPlatform/sphinx-service/pkg/message/message"
+	msgcli "github.com/NpoolPlatform/sphinx-plugin/pkg/message/client"
+	msg "github.com/NpoolPlatform/sphinx-plugin/pkg/message/message"
 )
 
 func listenTemplateExample() {

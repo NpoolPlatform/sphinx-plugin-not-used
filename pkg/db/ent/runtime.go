@@ -3,11 +3,11 @@
 package ent
 
 import (
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/coininfo"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/keystore"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/review"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/schema"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/transaction"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/coininfo"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/keystore"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/review"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/schema"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/transaction"
 )
 
 // The init function reads all schema descriptors with runtime code

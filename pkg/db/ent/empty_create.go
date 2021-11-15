@@ -8,7 +8,7 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/NpoolPlatform/sphinx-service/pkg/db/ent/empty"
+	"github.com/NpoolPlatform/sphinx-plugin/pkg/db/ent/empty"
 )
 
 // EmptyCreate is the builder for creating a Empty entity.

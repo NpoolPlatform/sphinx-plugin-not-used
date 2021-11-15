@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package sphinx.v1;
 
-option go_package = "github.com/NpoolPlatform/sphinx-plugin/message/agents";
+option go_package = "github.com/NpoolPlatform/sphinx-plugin/message/npool";
 
 // 钱包代理插件
 service Plugin {
