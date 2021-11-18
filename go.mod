@@ -3,20 +3,15 @@ module github.com/NpoolPlatform/sphinx-plugin
 go 1.16
 
 require (
-	entgo.io/ent v0.9.1
-	github.com/NpoolPlatform/go-service-framework v0.0.0-20211114053533-27f7b296cb9a
-	github.com/cyvadra/filecoin-client v0.3.5
-	github.com/filecoin-project/go-address v0.0.6
-	github.com/filecoin-project/go-state-types v0.1.1
-	github.com/go-resty/resty/v2 v2.7.0
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.6.0
-	github.com/ipfs/go-cid v0.1.0
-	github.com/shopspring/decimal v1.3.1
-	github.com/streadway/amqp v1.0.0
-	github.com/stretchr/testify v1.7.0
-	github.com/urfave/cli/v2 v2.3.0
-	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1
-	google.golang.org/grpc v1.42.0
-	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0
-	google.golang.org/protobuf v1.27.1
+	entgo.io/ent v0.9.1 // indirect
+	github.com/NpoolPlatform/go-service-framework v0.0.0-20211117074545-bc1340849b08 // indirect
+	github.com/NpoolPlatform/message v0.0.0-20211118035724-7c5cf6bf40e9
+	github.com/cyvadra/filecoin-client v0.3.5 // indirect
+	github.com/filecoin-project/go-address v0.0.6 // indirect
+	github.com/filecoin-project/go-jsonrpc v0.1.5 // indirect
+	github.com/filecoin-project/go-state-types v0.1.1 // indirect
+	github.com/filecoin-project/lotus v1.13.0 // indirect
+	github.com/filecoin-project/specs-actors v0.9.14 // indirect
+	github.com/urfave/cli/v2 v2.3.0 // indirect
+	google.golang.org/grpc v1.42.0 // indirect
 )

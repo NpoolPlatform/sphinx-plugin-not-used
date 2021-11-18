@@ -10,8 +10,8 @@ import (
 )
 
 const (
-	serviceName = "Sphinx"
-	usageText   = "Trading service and Wallet agent."
+	serviceName = "Sphinx Plugin"
+	usageText   = "Sphinx Plugin Service"
 )
 
 func main() {
